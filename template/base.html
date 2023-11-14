@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bloggy - Personal Blog Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                {% for i in abouts %}
+                <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
+                    <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="{{i.image.url}}" alt="Image">
+                    <h1 class="font-weight-bold">{{i.name}}</h1>
+                    <p class="mb-4">
+                        {{i.body | truncatewords:15}}
+                    </p>
+                    <div class="d-flex justify-content-center mb-5">
+                        <a class="btn btn-outline-primary mr-2" href="{{i.linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="{{i.instagram}}"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="{{i.GitHub}}"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="{{i.telegram}}"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Hire Me</a>
+                {% endfor %}
+                </div>
+                <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
+                    <i class="fas fa-2x fa-angle-double-right text-primary"></i>
+                </div>
+            </div>
+            <div class="content">
+                <!-- Navbar Start -->
+                <div class="container p-0">
+                    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                        <a href="" class="navbar-brand d-block d-lg-none">Navigation</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav m-auto">
+                                <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
+                                <a href="{% url 'abouts' %}" class="nav-item nav-link">About</a>
+                                <a href="{% url 'blog' %}" class="nav-item nav-link">Blogs</a>
+                                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Navbar End -->
+{% block content %}
+
+{% endblock %}
+                
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
