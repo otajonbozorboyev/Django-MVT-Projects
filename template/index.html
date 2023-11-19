@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="colorlib-main">
+<section class="ftco-section-no-padding bg-light">
+<div class="hero-wrap">
+<div class="overlay"></div>
+{% for i in abouts %}
+<div class="d-flex align-items-center js-fullheight">
+<div class="author-image text img d-flex">
+<section class="home-slider js-fullheight owl-carousel">
+<div class="slider-item js-fullheight" style="background-image: url({{ i.image.url }});">
+</div>
+</section>
+</div>
+<div class="author-info text p-3 p-md-5">
+<div class="desc">
+<span class="subheading">Hello! I'm</span>
+<h1 class="big-letter">{{i.full_name}}</h1>
+<h1 class="mb-4"><span>{{i.title}}</span></h1>
+<p class="mb-4">{{ i.description }}</p>
+<h3 class="signature h1">{{i.full_name}}</h3>
+<ul class="ftco-social mt-3">
+<li class="ftco-animate"><a href="{{i.twitter}}"><span class="icon-twitter"></span></a></li>
+<li class="ftco-animate"><a href="{{i.facebook}}"><span class="icon-facebook"></span></a></li>
+<li class="ftco-animate"><a href="{{i.instagram}}"><span class="icon-instagram"></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+<section class="ftco-section instagram">
+<div class="container">
+<div class="row justify-content-center mb-2 pb-3">
+<div class="col-md-7 heading-section heading-section-2 text-center ftco-animate">
+<h2 class="mb-4">Follow me on Instagram</h2>
+</div>
+</div>
+<div class="row no-gutters">
+    {% for i in collections %}  
+<div class="col-sm-12 col-md ftco-animate">
+<a href="{{ i.image.url }}" class="insta-img image-popup" style="background-image: url({{ i.image.url }});">
+<div class="icon d-flex justify-content-center">
+<span class="icon-instagram align-self-center"></span>
+</div>
+</a>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="colorlib-main">
+<section class="ftco-section ftco-bread">
+<div class="container">
+<div class="row no-gutters slider-text justify-content-center align-items-center">
+<div class="col-md-8 ftco-animate">
+<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home</a></span> <span>Services</span></p>
+<h1 class="bread">My Services</h1>
+</div>
+</div>
+</div>
+</section>
+<section class="ftco-section">
+<div class="container">
+<div class="row">
+    {% for i in service %}
+<div class="col-md-4 d-flex align-sel Searchf-stretch ftco-animate">
+<div class="media block-6 services py-4 d-block">
+<div class="d-flex justify-content-start">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="flaticon-polaroid-pictures"></span>
+</div>
+</div>
+<div class="media-body p-2 mt-2">
+<h3 class="heading mb-3">{{i.title}}</h3>
+<p>{{i.body}}</p>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+{% endblock %}

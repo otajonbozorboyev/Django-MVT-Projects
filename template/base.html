@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/louie/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2023 16:29:41 GMT -->
+<head>
+<title>Louie - Free Bootstrap 4 Template by Colorlib</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+<link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script nonce="88b4086b-4219-40a2-8800-17fa97036d61">(function(w,d){
+    !function(j,k,l,m){
+        j[l]=j[l]||{};
+        j[l].executed=[];
+        j.zaraz={deferred:[],listeners:[]};
+        j.zaraz.q=[];
+        j.zaraz._f=function(n){
+            return function(){
+                var o=Array.prototype.slice.call(arguments);
+                j.zaraz.q.push({m:n,a:o})}};
+                for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);
+                j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];
+                s&&(j[l].t=k.getElementsByTagName("title")[0].text);
+                j[l].x=Math.random();
+                j[l].w=j.screen.width;
+                j[l].h=j.screen.height;
+                j[l].j=j.innerHeight;
+                j[l].e=j.innerWidth;
+                j[l].l=j.location.href;
+                j[l].r=k.referrer;
+                j[l].k=j.screen.colorDepth;
+                j[l].n=k.characterSet;
+                j[l].o=(new Date).getTimezoneOffset();
+                if(j.dataLayer)for(const w of Object.entries(Object.entries(dataLayer).reduce(((x,y)=>({...x[1],...y[1]})),{})))zaraz.set(w[0],w[1],{scope:"page"});
+                j[l].q=[];
+                for(;j.zaraz.q.length;){
+                    const z=j.zaraz.q.shift();
+                    j[l].q.push(z)
+                }
+                r.defer=!0;
+                for(const A of[localStorage,sessionStorage])Object.keys(A||{}).filter((C=>C.startsWith("_zaraz_"))).forEach((B=>{
+                    try{
+                        j[l]["z_"+B.slice(7)]=JSON.parse(A.getItem(B))
+                    } catch {
+                        j[l]["z_"+B.slice(7)]=A.getItem(B)
+                    }
+                }));
+                r.referrerPolicy="origin";
+                r.src="https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));
+                q.parentNode.insertBefore(r,q)
+            };
+            ["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)
+        }(w,d,"zarazData","script");
+    })(window,document);</script></head>
+<body>
+<div id="colorlib-page">
+<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+    {% for i in abouts %}
+<h1 id="colorlib-logo"><a href="{% url 'index' %}"><span class="img" style="background-image: url({{ i.image.url }});"></span>{{ i.full_name }}</a></h1>
+{% endfor %}
+<nav id="colorlib-main-menu" role="navigation">
+<ul>
+<li class="colorlib-active"><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'collection' %}">Collection</a></li>
+<li><a href="{% url 'abouts' %}">About Me</a></li>
+<li><a href="{% url 'service' %}">My Services</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+{% block content %}
+
+{% endblock %}
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+<div class="container px-md-5">
+<div class="row mb-5">
+<div class="col-md">
+<div class="ftco-footer-widget mb-4 ml-md-4">
+<h2 class="ftco-heading-2">Recent Photos</h2>
+<ul class="list-unstyled photo">
+    {% for i in collections %}
+<li><a href="#" class="img" style="background-image: url({{ i.image.url }});"></a></li>
+    {% endfor %}
+</ul>
+</div>
+</div>
+<div class="col-md">
+<div class="ftco-footer-widget mb-4">
+<h2 class="ftco-heading-2">Archives</h2>
+<ul class="categories">
+    <li><a href="{% url 'blog' %}">All<span></span></a></li>
+    {% for i in categories %}
+    <li><a href="{% url 'blog'%}?cat={{ i.title }}">{{ i.title}}<span></span></a></li>
+    {% endfor %}
+</div>
+</div>
+<div class="col-md">
+<div class="ftco-footer-widget mb-4">
+<h2 class="ftco-heading-2">Have a Questions?</h2>
+<div class="block-23 mb-3">
+<ul>
+    {% for i in cme %}
+<li><span class="icon icon-map-marker"></span><span class="text">{{ i.address }}</span></li>
+<li><a href="#"><span class="icon icon-phone"></span><span class="text">{{ i.phone }}</span></a></li>
+<li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{ i.email }}</span></a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p>
+Copyright &copy;<script data-cfasync="false" src="https://preview.colorlib.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with by <a href="https://www.linkedin.com/in/otajonbozorboyev/" target="_blank">otajonbozorboyev</a>
+</p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'js/jquery.timepicker.min.html' %}"></script>
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+<script src="{% static 'js/google-map.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+        dataLayer.push(arguments);
+    }
+    
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"7ece05da5a6b1055","version":"2023.4.0","b":1,"token":"cd0b4b3a733644fc843ef0b185f98241","si":100}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/louie/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2023 16:30:29 GMT -->
+</html>
