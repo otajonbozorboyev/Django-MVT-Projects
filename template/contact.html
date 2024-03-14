@@ -2,63 +2,68 @@
 {% load static %}
 {% block content %}
 <div id="colorlib-main">
-<section class="ftco-section ftco-bread">
-<div class="container">
-<div class="row no-gutters slider-text justify-content-center align-items-center">
-<div class="col-md-8 ftco-animate">
-<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home</a></span> <span>Contact</span></p>
-<h1 class="bread">Contact</h1>
-</div>
-</div>
-</div>
-</section>
-<section class="ftco-section contact-section">
-<div class="container">
-<div class="row d-flex mb-5 contact-info">
-<div class="col-md-12 mb-4">
-<h2 class="h3 font-weight-bold">Contact Information</h2>
-</div>
-{% for i in cme %}
-<div class="w-100"></div>
-<div class="col-md-3 d-flex">
-<div class="info bg-light p-4">
-<p><span>Address:</span><a> {{i.address}}</a></p>
-</div>
-</div>
-<div class="col-md-3 d-flex">
-<div class="info bg-light p-4">
-<p><span>Phone:</span> <a href="tel://+998915657203">{{i.phone}}</a></p>
-</div>
-</div>
-<div class="col-md-3 d-flex">
-<div class="info bg-light p-4">
-<p><span>Email:</span><a> {{i.email}}</span></a></p>
-</div>
-</div>
-<div class="col-md-3 d-flex">
-<div class="info bg-light p-4">
-<p><span>Website</span> <a href="#">{{i.website}}</a></p>
-</div>
-</div>
-{% endfor %}
-</div>
-<div class="row block-9">
-<div class="col-md-12 d-flex">
-<form method="post" action="#" class="bg-light p-5 contact-form">
-    {% csrf_token %}
-<div class="form-group">
-{{ form.full_name }}</div>
-<div class="form-group">
-{{form.email}}</div>
-<div class="form-group">
-{{form.phone}}</div>
-<div class="form-group">
-{{form.message}}</div>
-<div class="form-group">
-<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-</div>
-</form>
-</div>
-</div>
-</section>
-{% endblock %}
+    <section class="ftco-section ftco-bread">
+        <div class="container">
+            <div class="row no-gutters slider-text justify-content-center align-items-center">
+                <div class="col-md-8 ftco-animate">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home</a></span>
+                        <span>Contact</span></p>
+                    <h1 class="bread">Contact</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row d-flex mb-5 contact-info">
+                <div class="col-md-12 mb-4">
+                    <h2 class="h3 font-weight-bold">Contact Information</h2>
+                </div>
+                {% for i in cme %}
+                <div class="w-100"></div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-light p-4">
+                        <p><span>Address:</span><a> {{i.address}}</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-light p-4">
+                        <p><span>Phone:</span> <a href="tel://+998915657203">{{i.phone}}</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-light p-4">
+                        <p><span>Email:</span><a> {{i.email}}</span></a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-light p-4">
+                        <p><span>Website</span> <a href="#">{{i.website}}</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row block-9">
+                <div class="col-md-12 d-flex">
+                    <form method="post" action="#" class="bg-light p-5 contact-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.full_name }}
+                        </div>
+                        <div class="form-group">
+                            {{form.email}}
+                        </div>
+                        <div class="form-group">
+                            {{form.phone}}
+                        </div>
+                        <div class="form-group">
+                            {{form.message}}
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </section>
+    {% endblock %}
